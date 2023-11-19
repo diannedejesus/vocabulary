@@ -38,3 +38,9 @@ h1 {
     background-color: #ffffff;
   }
 }
+
+@media print {
+  nav {
+    display: none;
+  }
+}
