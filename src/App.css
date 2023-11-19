@@ -1,0 +1,111 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 5rem 0 2rem 0;
+  color: darkorange;
+  font-variant: small-caps;
+  font-size: 2rem;
+}
+h2,
+h1,
+nav {
+  text-align: center;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+.wordContainer {
+  height: 3rem;
+  font-size: x-large;
+  line-height: 3rem;
+}
+.wordContainer,
+.hintBox {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.numberIndex,
+.word,
+.writingBox {
+  border: 1px solid black;
+}
+.numberIndex,
+.hintBox div:first-of-type {
+  width: 5%;
+}
+.numberIndex {
+  text-align: center;
+}
+
+.hintBox div + div {
+  flex-grow: 6;
+  text-align: left;
+  font-style: italic;
+  font-size: small;
+  color: darkgray;
+}
+
+.word {
+  flex-grow: 2;
+  padding-left: 1rem;
+  border-left: 0;
+  width: 0;
+}
+
+.writingBox {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  border-left: 0;
+}
+.writingBox div {
+  flex-grow: 1;
+}
+
+.topWrite {
+  border-bottom: 1px dashed grey;
+}
+
+.list,
+fieldset,
+input,
+button {
+  font-size: 1.5rem;
+}
+.list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid white;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.list + div {
+  flex-grow: 1;
+}
+.data {
+  flex-grow: 2;
+}
+
+.list button {
+  border: 0;
+  padding: 0 1rem;
+  border-radius: 3px;
+  background-color: firebrick;
+}
+
+.listHint {
+  font-size: 1rem;
+  font-style: italic;
+}

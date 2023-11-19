@@ -1,0 +1,25 @@
+.vocabfield {
+  display: flex;
+  flex-direction: column;
+}
+
+.vocabForm form {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: 1rem;
+}
+
+.vocabForm form * {
+  flex-grow: 1;
+}
+
+.vocabForm {
+  margin-bottom: 1rem;
+}
+
+.vocabForm button {
+  border: 2px solid forestgreen;
+  border-radius: 3px;
+  background-color: forestgreen;
+}
