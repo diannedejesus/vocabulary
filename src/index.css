@@ -40,7 +40,9 @@ h1 {
 }
 
 @media print {
-  nav {
+  nav,
+  form *,
+  button {
     display: none;
   }
 }

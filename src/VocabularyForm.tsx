@@ -11,7 +11,7 @@ interface Props {
 function VocabularyForm({ onSubmit, words, onRemoveWord }: Props) {
   return (
     <>
-      <h2>Edit Vocabulary</h2>
+      <h2>Vocabulary</h2>
       <section className="vocabForm">
         <form
           onSubmit={(event) => {
