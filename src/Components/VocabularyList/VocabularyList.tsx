@@ -1,5 +1,5 @@
 import { SyntheticEvent } from "react";
-import "./vocabform.css";
+import "./VocabularyList.css";
 import InputWordField from "./InputWordField";
 
 interface Props {

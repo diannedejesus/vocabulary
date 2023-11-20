@@ -19,6 +19,9 @@ function Navigation({ onClick }: Props) {
             <a onClick={() => onClick("scramble")}>Word Scramble</a>
           </li>
           <li>
+            <a onClick={() => onClick("wordsearch")}>Word Search</a>
+          </li>
+          <li>
             <a onClick={() => onClick("form")}>Word List</a>
           </li>
         </ul>

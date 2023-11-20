@@ -1,10 +1,11 @@
 import { SyntheticEvent, useState } from "react";
 import "./App.css";
-import Navigation from "./Navigation";
-import ScrambleList from "./ScrambleList";
-import BlankList from "./BlankList";
-import vocabularyList from "./data";
-import VocabularyForm from "./VocabularyForm";
+import Navigation from "./Components/Navigation/Navigation";
+import ScrambleList from "./Components/Scramble/ScrambleList";
+import BlankList from "./Components/Blanks/BlankList";
+import vocabularyList from "./assets/data";
+import VocabularyForm from "./Components/VocabularyList/VocabularyList";
+import WordSearchGrid from "./Components/WordSearch/WordSearchGrid";
 
 function App() {
   const [worksheet, setWorksheet] = useState("");
@@ -35,6 +36,9 @@ function App() {
       {worksheet === "" && <h2>Choose an option ^^</h2>}
       {worksheet === "scramble" && <ScrambleList vocabularyList={wordList} />}
       {worksheet === "blank" && <BlankList vocabularyList={wordList} />}
+      {worksheet === "wordsearch" && (
+        <WordSearchGrid wordSearchList={wordList} />
+      )}
       {worksheet === "form" && (
         <VocabularyForm
           onSubmit={submittedInfo}

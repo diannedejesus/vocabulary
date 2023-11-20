@@ -1,24 +1,23 @@
-import helperfunctions from "./services/helper-classes";
-import ScrambleBox from "./ScrambleWords/ScrambleBox";
+import helperfunctions from "../../services/helper-classes";
+import BlankBox from "./BlanksBox";
 
 interface Props {
   vocabularyList: { word: string; hint: string; id: number }[];
 }
 
-const ScrambleList = ({ vocabularyList }: Props) => {
+const BlankList = ({ vocabularyList }: Props) => {
   const helpers = new helperfunctions();
-
   const randomizedList = helpers.randomizeWords(vocabularyList);
 
   return (
     <>
-      <h2>Scrambled Vocabulary</h2>
+      <h2>Missing Letters</h2>
       {randomizedList.map(
         (word: { word: string; hint: string; id: number }, index: number) => {
           return (
-            <ScrambleBox
+            <BlankBox
               key={word.id}
-              vocabularyWord={helpers.scrambleWord(word.word, 10)}
+              vocabularyWord={helpers.maskWord(word.word)}
               hintPhrase={word.hint}
               id={index + 1}
             />
@@ -29,4 +28,4 @@ const ScrambleList = ({ vocabularyList }: Props) => {
   );
 };
 
-export default ScrambleList;
+export default BlankList;
