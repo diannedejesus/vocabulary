@@ -54,7 +54,7 @@ class WordSearchGenerator {
         return grid;
     }
       
-    straightPlacement(word: string, location: number, grid: string[], gridSize: number){
+    straightPlacement(word: string, location: number, grid: string[]){
         for(let i=0; i<word.length; i++){
             let gridLocation = i+location   
             
@@ -99,17 +99,17 @@ class WordSearchGenerator {
                         isPlaced = true;
                         placedWords.push(word)
                     }
-                    availableDownPositions = availableDownPositions.filter((item, index) => index !== placementlocation)
+                    availableDownPositions = availableDownPositions.filter((item) => item !== availableDownPositions[placementlocation])
                     if(availableDownPositions.length <= 0) positions = positions.filter(item => item !== "down")
                     
                 }else if(positions[positionSelect] === "straight"){
                     let placementlocation = Math.floor(Math.random() * availableStraightPositions.length)
                     if(this.isStraightPlacement(word, availableStraightPositions[placementlocation], grid, gridSize)){
-                        grid = this.straightPlacement(word, availableStraightPositions[placementlocation], grid, gridSize);
+                        grid = this.straightPlacement(word, availableStraightPositions[placementlocation], grid);
                         isPlaced = true;
                         placedWords.push(word)
                     }
-                    availableStraightPositions = availableStraightPositions.filter((item, index) => index !== placementlocation)
+                    availableStraightPositions = availableStraightPositions.filter((item) => item !== availableStraightPositions[placementlocation])
                     if(availableStraightPositions.length <= 0) positions = positions.filter(item => item !== "straight")
 
                 }else if(positions[positionSelect] === "diagonalright"){
@@ -119,7 +119,7 @@ class WordSearchGenerator {
                         isPlaced = true;
                         placedWords.push(word)
                     }
-                    availableDiagonalRightPositions = availableDiagonalRightPositions.filter((item, index) => index !== placementlocation)
+                    availableDiagonalRightPositions = availableDiagonalRightPositions.filter((item) => item !== availableDiagonalRightPositions[placementlocation])
                     if(availableDiagonalRightPositions.length <= 0) positions = positions.filter(item => item !== "diagonalright")
 
                 }

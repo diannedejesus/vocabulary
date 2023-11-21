@@ -24,8 +24,8 @@ const WordSearchGrid = ({ wordSearchList }: Props) => {
         </table>
 
         <ol>
-          {wordsearchgrid.placeWords.map((item) => (
-            <li>{item}</li>
+          {wordsearchgrid.placeWords.map((item, index) => (
+            <li key={"words" + index}>{item}</li>
           ))}
         </ol>
       </div>
