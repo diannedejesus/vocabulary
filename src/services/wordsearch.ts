@@ -29,9 +29,9 @@ class WordSearchGenerator {
         let maxGridSize = gridSize*gridSize
         let lastLetterPosition = (location + (word.length-1) * gridSize)+(word.length-1)
         if(maxGridSize < lastLetterPosition) return false;
-      
+
         for(let i=0; i<word.length; i++){
-            let rowLimit = ((i + Math.trunc(location/4)) *gridSize+3)
+            let rowLimit = ((i + (Math.trunc(location/gridSize) + 1)) * gridSize) - 1
             let currentPlacement = location + (i*gridSize) + i
             let gridLocation = location +(i*gridSize) + i
 
@@ -151,7 +151,7 @@ class WordSearchGenerator {
         for(let i=0; i<gridSize*gridSize; i++){
             grid.push("")
         }
-
+        //words = words.filter((items,index) => index < 6)
         let wordsearch = this.placeWords(grid, words, gridSize);
         let wordsearchGrid = this.fillGrid(wordsearch.grid)
 

@@ -1,13 +1,16 @@
 import WordSearchRow from "./WordSearchRow";
 import "./WordSearch.css";
 import WordSearchGenerator from "../../services/wordsearch";
+import helperfunctions from "../../services/helper-classes";
 
 interface Props {
   wordSearchList: { word: string; hint: string; id: number }[];
 }
 
 const WordSearchGrid = ({ wordSearchList }: Props) => {
-  const gridLetters = wordSearchList.map((item) => item.word);
+  const helpers = new helperfunctions();
+  const randomizedList = helpers.randomizeWords(wordSearchList);
+  const gridLetters = randomizedList.map((item) => item.word);
   const wordsearcher = new WordSearchGenerator();
   const wordsearchgrid = wordsearcher.generateWordSearch([], gridLetters, 10);
 
