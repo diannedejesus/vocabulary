@@ -10,7 +10,7 @@ interface Props {
 const WordSearchGrid = ({ wordSearchList }: Props) => {
   const helpers = new helperfunctions();
   const randomizedList = helpers.randomizeWords(wordSearchList);
-  const gridLetters = randomizedList.map((item) => item.word);
+  const gridLetters = randomizedList.map((item) => item.word.toUpperCase());
   const wordsearcher = new WordSearchGenerator();
   const wordsearchgrid = wordsearcher.generateWordSearch([], gridLetters, 10);
 
