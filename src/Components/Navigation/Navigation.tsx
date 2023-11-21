@@ -13,16 +13,29 @@ function Navigation({ onClick }: Props) {
             <h1>WorkSheets:</h1>
           </li>
           <li>
-            <a onClick={() => onClick("blank")}>Missing Letters</a>
+            <a href="#" onClick={() => onClick("blank")}>
+              Missing Letters
+            </a>
           </li>
           <li>
-            <a onClick={() => onClick("scramble")}>Word Scramble</a>
+            <a href="#" onClick={() => onClick("scramble")}>
+              Word Scramble
+            </a>
           </li>
           <li>
-            <a onClick={() => onClick("wordsearch")}>Word Search</a>
+            <a href="#" onClick={() => onClick("wordsearch")}>
+              Word Search
+            </a>
           </li>
           <li>
-            <a onClick={() => onClick("form")}>Word List</a>
+            <a href="#" onClick={() => onClick("form")}>
+              Word List
+            </a>
+          </li>
+          <li>
+            <a href="#" onClick={() => window.print()}>
+              Print
+            </a>
           </li>
         </ul>
       </nav>
