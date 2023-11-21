@@ -109,3 +109,17 @@ button {
   font-size: 1rem;
   font-style: italic;
 }
+
+.wordsearch {
+  display: flex;
+  justify-content: center;
+}
+
+.wordsearch table {
+  margin: 0;
+}
+
+.wordsearch ol {
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}

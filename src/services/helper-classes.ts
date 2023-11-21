@@ -1,42 +1,4 @@
-
 class helperfunctions {
-  wordSearchGenerator(wordList: { word: string; hint: string; id: number; }[], gridSize: number){
-    //verify grid size
-    const positions = ["straight", "down", "diagonal"];
-    const wordSearchGrid = [""]
-    const isSizeFit = wordList.every(( item ) => item.word.length <= gridSize)
-    if(!isSizeFit){ return } //error invalid grid size
-
-    for(let word of wordList){
-      //randomize position and location
-      let randomPosition = 1 //Math.floor(Math.random() * positions.length)
-      let randomLocation = Math.floor(Math.random() * (gridSize*gridSize))
-        
-      //check if word fits
-
-        //straight
-        if(positions[randomPosition-1] === "straight"){
-          //6x6 = 36
-          if( word.word.length < Math.abs((randomLocation % gridSize) - gridSize) ){ //does it fit
-            for(let i=0; i<word.word.length; i++){
-              if(wordSearchGrid[i+randomLocation] !== "" || wordSearchGrid[i+randomLocation] !== word.word[i]){ //conflict
-                
-                
-              }
-            }
-          }
-          
-        }
-
-        //down
-        //diagonal
-
-    }
-    
-
-    
-  }
-
   randomizeWords(wordList: { word: string; hint: string; id: number; }[]) {
       // Create a copy of the original array to avoid modifying the input
       const shuffledList = [...wordList];
