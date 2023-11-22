@@ -41,6 +41,34 @@ class WordSearchGenerator {
       
       return true;
     }
+
+    isDiagonalLeftPlacement(word: string, location: number, grid: string[], gridSize: number){
+        let maxGridSize = gridSize*gridSize
+        let lastLetterPosition = (location + (word.length-1) * gridSize)-(word.length-1)
+        if(maxGridSize < lastLetterPosition) return false;
+
+        for(let i=0; i<word.length; i++){
+            let rowLimit = ((i + (Math.trunc(location/gridSize) + 1)) * gridSize) - gridSize
+            let currentPlacement = location + (i*gridSize) - i
+            let gridLocation = location +(i*gridSize) - i
+
+            if(currentPlacement < rowLimit) return false
+            if(grid[gridLocation] !== "" && grid[gridLocation] !== word[i]) return false
+        }
+      
+      return true;
+    }
+
+    diagonalLeftPlacement(word: string, location: number, grid: string[], gridSize: number){
+
+        for(let i=0; i<word.length; i++){
+            let gridLocation = location +(i*gridSize) - i
+
+            if(grid[gridLocation] === "" || grid[gridLocation] === word[i]) grid[gridLocation] = word[i]
+        }
+      
+        return grid;
+    }
     
     diagonalRightPlacement(word: string, location: number, grid: string[], gridSize: number){
         for(let i=0; i<word.length; i++){
@@ -83,11 +111,12 @@ class WordSearchGenerator {
         let unplacedWords = [];
         
         for(let word of words){
-            let positions = ["down", "straight", "diagonalright"]
+            let positions = ["down", "straight", "diagonalright", "diagonalleft"]
             let isPlaced = false;
             let availableDownPositions = Array.from(Array( gridSize*gridSize ).keys())
             let availableStraightPositions = Array.from(Array( gridSize*gridSize ).keys())
             let availableDiagonalRightPositions = Array.from(Array( gridSize*gridSize ).keys())
+            let availableDiagonalLeftPositions = Array.from(Array( gridSize*gridSize ).keys())
 
             while(!isPlaced && positions.length > 0){
                 let positionSelect = Math.floor(Math.random() * positions.length)
@@ -122,7 +151,18 @@ class WordSearchGenerator {
                     availableDiagonalRightPositions = availableDiagonalRightPositions.filter((item) => item !== availableDiagonalRightPositions[placementlocation])
                     if(availableDiagonalRightPositions.length <= 0) positions = positions.filter(item => item !== "diagonalright")
 
+                }else if(positions[positionSelect] === "diagonalleft"){
+                    let placementlocation = Math.floor(Math.random() * availableDiagonalLeftPositions.length)
+                    if(this.isDiagonalLeftPlacement(word, availableDiagonalLeftPositions[placementlocation], grid, gridSize)){
+                        grid = this.diagonalLeftPlacement(word, availableDiagonalLeftPositions[placementlocation], grid, gridSize);
+                        isPlaced = true;
+                        placedWords.push(word)
+                    }
+                    availableDiagonalLeftPositions = availableDiagonalLeftPositions.filter((item) => item !== availableDiagonalLeftPositions[placementlocation])
+                    if(availableDiagonalLeftPositions.length <= 0) positions = positions.filter(item => item !== "diagonalleft")
+
                 }
+                
             }
 
             if(availableDownPositions.length <= 0 || availableStraightPositions.length <= 0 || availableDiagonalRightPositions.length <= 0){
