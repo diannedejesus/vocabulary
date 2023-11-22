@@ -10,6 +10,6 @@ If you know coding then feel free to download and use the data.ts file to integr
 
 ## Other
 
-Currently the word search is not complete. I need to implement a diagonal left placement and do more testing.
+I need to do more testing.
 
-Also if a word can't be placed it will be excluded. It will try every position and placement before excluding the word.
+Also in word search if a word can't be placed it will be excluded. It will try every position and placement before excluding the word.

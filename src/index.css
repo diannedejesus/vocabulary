@@ -46,3 +46,13 @@ h1 {
     display: none;
   }
 }
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0;
+  }
+
+  nav ul > :first-child {
+    margin-left: 0;
+  }
+}
