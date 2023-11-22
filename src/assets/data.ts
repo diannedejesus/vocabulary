@@ -33,74 +33,8 @@
     { word: "aunt", hint: "What you call your cousins mother.", id: 16 },
   ];
 
-  const lesson11 = [
-    {
-      word: "pile",
-      hint: "Build it high with things in your room that need to be put away.",
-      id: 1101
-    },
-    {
-      word: "bright",
-      hint: "The sun makes everything around you light up during the day.",
-      id: 1102
-    },
-    {
-      word: "tonight",
-      hint: "When the stars come out, it's this time, and you'll see them in the sky.",
-      id: 1103
-    },
-    {
-      word: "woke",
-      hint: "It's what happens when you open your eyes in the morning.",
-      id: 1104
-    },
-    {
-      word: "coast",
-      hint: "Where the land meets the sea, you can find this place.",
-      id: 1105
-    },
-    {
-      word: "yellow",
-      hint: "A color that's as cheerful as the sun and some flowers.",
-      id: 1106
-    },
-    {
-      word: "might",
-      hint: "Use this word when you're not sure if something will happen.",
-      id: 1107
-    },
-    {
-      word: "mice",
-      hint: "Small, furry creatures that squeak and nibble on cheese.",
-      id: 1108
-    },
-    {
-      word: "blind",
-      hint: "Can't see, even if the lights are off.",
-      id: 1109
-    },
-    {
-      word: "bone",
-      hint: "It's hard and white, and you have many of them in your body.",
-      id: 1110
-    },
-    {
-      word: "grows",
-      hint: "Plants do this when they get bigger and taller.",
-      id: 1111
-    },
-    {
-      word: "toe",
-      hint: "One of the five things on the end of your foot.",
-      id: 1112
-    },
-    {
-      word: "loaf",
-      hint: "A type of bread that's shaped like a rectangle.",
-      id: 1113
-    }
-  ];
+  
 
-  export default {vocabularyList, lesson11}
+  export default vocabularyList;
 
   
