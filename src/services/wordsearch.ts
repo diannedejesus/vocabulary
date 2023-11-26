@@ -33,10 +33,10 @@ class WordSearchGenerator {
         for(let i=0; i<word.length; i++){
             let rowLimit = ((i + (Math.trunc(location/gridSize) + 1)) * gridSize) - 1
             let currentPlacement = location + (i*gridSize) + i
-            let gridLocation = location +(i*gridSize) + i
+            //let gridLocation = location +(i*gridSize) + i
 
             if(currentPlacement > rowLimit) return false
-            if(grid[gridLocation] !== "" && grid[gridLocation] !== word[i]) return false
+            if(grid[currentPlacement] !== "" && grid[currentPlacement] !== word[i]) return false
         }
       
       return true;
@@ -50,10 +50,10 @@ class WordSearchGenerator {
         for(let i=0; i<word.length; i++){
             let rowLimit = ((i + (Math.trunc(location/gridSize) + 1)) * gridSize) - gridSize
             let currentPlacement = location + (i*gridSize) - i
-            let gridLocation = location +(i*gridSize) - i
+            //let gridLocation = location +(i*gridSize) - i
 
             if(currentPlacement < rowLimit) return false
-            if(grid[gridLocation] !== "" && grid[gridLocation] !== word[i]) return false
+            if(grid[currentPlacement] !== "" && grid[currentPlacement] !== word[i]) return false
         }
       
       return true;

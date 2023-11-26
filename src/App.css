@@ -26,7 +26,6 @@ nav {
 .wordContainer {
   height: 3rem;
   font-size: x-large;
-  line-height: 3rem;
 }
 .wordContainer,
 .hintBox {
@@ -38,6 +37,7 @@ nav {
 .word,
 .writingBox {
   border: 1px solid black;
+  padding: 0.5rem;
 }
 .numberIndex,
 .hintBox div:first-of-type {

@@ -3,7 +3,8 @@
   flex-direction: column;
 }
 
-.vocabForm form {
+.vocabForm form,
+.vocabForm form section {
   display: flex;
   flex-direction: row;
   align-items: end;
@@ -22,4 +23,27 @@
   border: 2px solid forestgreen;
   border-radius: 3px;
   background-color: forestgreen;
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 576px) {
+  .vocabForm form {
+    /* display: flex; */
+    flex-direction: column;
+    align-items: normal;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .vocabForm form section,
+  .vocabForm form {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .vocabForm {
+    display: flex;
+    justify-content: center;
+  }
 }
