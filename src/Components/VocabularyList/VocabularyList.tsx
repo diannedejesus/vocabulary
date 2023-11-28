@@ -14,6 +14,7 @@ function VocabularyForm({ onSubmit, words, onRemoveWord }: Props) {
       <h2>Vocabulary</h2>
       <section className="vocabForm">
         <form
+          id="addword"
           onSubmit={(event) => {
             event.preventDefault();
             onSubmit(event);
