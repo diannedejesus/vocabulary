@@ -7,3 +7,10 @@
 .nav ul {
   padding: 0;
 }
+
+.languages {
+  text-align: right;
+}
+.languages li a {
+  color: white;
+}

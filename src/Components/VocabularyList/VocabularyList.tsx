@@ -6,12 +6,20 @@ interface Props {
   onSubmit: (data: SyntheticEvent) => void;
   onRemoveWord: (data: number) => void;
   words: { word: string; hint: string; id: number }[];
+  formText: { word: string; hint: string; button: string };
+  title: string;
 }
 
-function VocabularyForm({ onSubmit, words, onRemoveWord }: Props) {
+function VocabularyForm({
+  onSubmit,
+  words,
+  onRemoveWord,
+  title,
+  formText: { word, hint, button },
+}: Props) {
   return (
     <>
-      <h2>Vocabulary</h2>
+      <h2>{title}</h2>
       <section className="vocabForm">
         <form
           id="addword"
@@ -20,8 +28,8 @@ function VocabularyForm({ onSubmit, words, onRemoveWord }: Props) {
             onSubmit(event);
           }}
         >
-          <InputWordField />
-          <button>Add</button>
+          <InputWordField fieldText={{ word, hint }} />
+          <button>{button}</button>
         </form>
       </section>
 
