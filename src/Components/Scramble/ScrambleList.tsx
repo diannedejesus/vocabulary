@@ -3,15 +3,16 @@ import ScrambleBox from "./ScrambleBox";
 
 interface Props {
   vocabularyList: { word: string; hint: string; id: number }[];
+  title: string;
 }
 
-const ScrambleList = ({ vocabularyList }: Props) => {
+const ScrambleList = ({ vocabularyList, title }: Props) => {
   const helpers = new helperfunctions();
   const randomizedList = helpers.randomizeWords(vocabularyList);
 
   return (
     <>
-      <h2>Scrambled Vocabulary</h2>
+      <h2>{title}</h2>
       {randomizedList.map(
         (word: { word: string; hint: string; id: number }, index: number) => {
           return (

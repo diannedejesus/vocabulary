@@ -45,10 +45,23 @@ function App() {
         onPageClick={(type: string) => setWorksheet(type)}
       />
       {worksheet === "" && <h2>{language.main} ^^</h2>}
-      {worksheet === "scramble" && <ScrambleList vocabularyList={wordList} />}
-      {worksheet === "blank" && <BlankList vocabularyList={wordList} />}
+      {worksheet === "scramble" && (
+        <ScrambleList
+          title={language.pageTitles.scramble}
+          vocabularyList={wordList}
+        />
+      )}
+      {worksheet === "blank" && (
+        <BlankList
+          title={language.pageTitles.missing}
+          vocabularyList={wordList}
+        />
+      )}
       {worksheet === "wordsearch" && (
-        <WordSearchGrid wordSearchList={wordList} />
+        <WordSearchGrid
+          title={language.pageTitles.search}
+          wordSearchList={wordList}
+        />
       )}
       {worksheet === "form" && (
         <VocabularyForm

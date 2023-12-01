@@ -3,15 +3,16 @@ import BlankBox from "./BlanksBox";
 
 interface Props {
   vocabularyList: { word: string; hint: string; id: number }[];
+  title: string;
 }
 
-const BlankList = ({ vocabularyList }: Props) => {
+const BlankList = ({ vocabularyList, title }: Props) => {
   const helpers = new helperfunctions();
   const randomizedList = helpers.randomizeWords(vocabularyList);
 
   return (
     <>
-      <h2>Missing Letters</h2>
+      <h2>{title}</h2>
       {randomizedList.map(
         (word: { word: string; hint: string; id: number }, index: number) => {
           return (

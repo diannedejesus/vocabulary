@@ -5,9 +5,10 @@ import helperfunctions from "../../services/helper-classes";
 
 interface Props {
   wordSearchList: { word: string; hint: string; id: number }[];
+  title: string;
 }
 
-const WordSearchGrid = ({ wordSearchList }: Props) => {
+const WordSearchGrid = ({ wordSearchList, title }: Props) => {
   const helpers = new helperfunctions();
   const randomizedList = helpers.randomizeWords(wordSearchList);
   const gridLetters = randomizedList.map((item) => item.word.toUpperCase());
@@ -16,7 +17,7 @@ const WordSearchGrid = ({ wordSearchList }: Props) => {
 
   return (
     <>
-      <h2>Word Search</h2>
+      <h2>{title}</h2>
       <div className="wordsearch">
         <table className="wordSearchTable">
           <tbody>
