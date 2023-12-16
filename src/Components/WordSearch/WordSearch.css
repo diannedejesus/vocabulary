@@ -12,21 +12,19 @@ tr {
   border: 1px solid yellow;
   border-collapse: collapse;
   padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-}
-
-.wordsearch {
-  display: flex;
-  justify-content: center;
+  font-size: 1.2rem;
 }
 
 .wordsearch table {
   margin: 0;
 }
 
-.wordsearch ol {
-  font-size: 1.5rem;
-  margin-left: 2rem;
+.wordsearch {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 8rem;
+  font-size: 1.2rem;
 }
 
 @media print {

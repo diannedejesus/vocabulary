@@ -23,8 +23,6 @@ I need to do more testing.
 Also in word search if a word can't be placed it will be excluded. It will try every position and placement before excluding the word.
 
 <!--
-
-print version -> word search: does not fit int print area if grid is too big
             -> Word list: print version has a lot of space if no hint is provided.
             -> all: add to top name and date field
 Wordsearch: allow customized gridsize, possibly easier version by using fill letter of all alphabet

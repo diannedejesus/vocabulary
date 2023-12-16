@@ -18,21 +18,20 @@ const WordSearchGrid = ({ wordSearchList, title }: Props) => {
   return (
     <>
       <h2>{title}</h2>
-      <div className="wordsearch">
-        <table className="wordSearchTable">
-          <tbody>
-            {wordsearchgrid.grid.map((item, index) => (
-              <WordSearchRow searchRow={item} id={index + 1} />
-            ))}
-          </tbody>
-        </table>
 
-        <ol>
-          {wordsearchgrid.placeWords.map((item, index) => (
-            <li key={"words" + index}>{item}</li>
+      <table className="wordSearchTable">
+        <tbody>
+          {wordsearchgrid.grid.map((item, index) => (
+            <WordSearchRow searchRow={item} id={index + 1} />
           ))}
-        </ol>
-      </div>
+        </tbody>
+      </table>
+
+      <ol className="wordsearch">
+        {wordsearchgrid.placeWords.map((item, index) => (
+          <li key={"words" + index}>{item}</li>
+        ))}
+      </ol>
     </>
   );
 };
