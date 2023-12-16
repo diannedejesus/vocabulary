@@ -28,7 +28,7 @@ print version -> word search: does not fit int print area if grid is too big
             -> Word list: print version has a lot of space if no hint is provided.
             -> all: add to top name and date field
 Wordsearch: allow customized gridsize, possibly easier version by using fill letter of all alphabet
-
+word list: add a section for allowing copying and pasting a list
 
 
 

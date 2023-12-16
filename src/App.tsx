@@ -14,12 +14,13 @@ function App() {
   const { data, loading, error } = useFetch(
     "https://api.dictionaryapi.dev/api/v2/entries/en/test"
   );
-
+  {
+    console.log(error);
+  }
   const wordlist = import.meta.env.DEV ? secondaryList : vocabularyList;
   const [worksheet, setWorksheet] = useState("");
   const [wordList, setWordList] = useState(wordlist);
   const [language, setLanguage] = useState(english);
-  const [backend, setBackend] = useState(false);
 
   const submittedInfo = (event: SyntheticEvent) => {
     const target = event.target as typeof event.target & {
@@ -86,7 +87,7 @@ function App() {
         />
       )}
 
-      {/* {error && <p>Error: </p>} */}
+      {error && <p>Error: </p>}
       {loading && <p>Loading...</p>}
       {data && console.log(data)}
     </>
