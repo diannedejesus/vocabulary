@@ -40,10 +40,8 @@ function Navigation({
             </a>
           </li>
         </ul>
+        <h1>{title}:</h1>
         <ul>
-          <li>
-            <h1>{title}:</h1>
-          </li>
           <li>
             <a href="#" onClick={() => onPageClick("blank")}>
               {navigation.missing}

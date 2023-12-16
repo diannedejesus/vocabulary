@@ -11,7 +11,7 @@ const english = {
   navigation: {scramble: "Word Scramble", missing: "Missing Letters", search: "Word Search", list: "Word List", print: "Print"},
   pageTitles: {scramble: "Unscramble the Words", missing: "Fill in the Missing Letters", search: "Find the Words", list: "Vocabulary"},
   wordList: {form: {word: "Word", hint: "Hint", button: "Add"}},
-  main: "Choose an option"
+  main: "To create a worksheet, you should first select word list to add the words you will be using. Then you can select any of the other options and that worksheet will be created with your personlize words."
 }
 
 export {spanish, english}

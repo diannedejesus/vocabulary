@@ -13,7 +13,7 @@ const WordSearchGrid = ({ wordSearchList, title }: Props) => {
   const randomizedList = helpers.randomizeWords(wordSearchList);
   const gridLetters = randomizedList.map((item) => item.word.toUpperCase());
   const wordsearcher = new WordSearchGenerator();
-  const wordsearchgrid = wordsearcher.generateWordSearch([], gridLetters, 10);
+  const wordsearchgrid = wordsearcher.generateWordSearch([], gridLetters, 12);
 
   return (
     <>
