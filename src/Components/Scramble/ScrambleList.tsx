@@ -1,17 +1,20 @@
 import helperfunctions from "../../services/helper-classes";
+import TopSection from "../TopSection";
 import ScrambleBox from "./ScrambleBox";
 
 interface Props {
   vocabularyList: { word: string; hint: string; id: number }[];
   title: string;
+  topSection: { name: string; date: string };
 }
 
-const ScrambleList = ({ vocabularyList, title }: Props) => {
+const ScrambleList = ({ vocabularyList, title, topSection }: Props) => {
   const helpers = new helperfunctions();
   const randomizedList = helpers.randomizeWords(vocabularyList);
 
   return (
     <>
+      <TopSection text={topSection} />
       <h2>{title}</h2>
       {randomizedList.map(
         (word: { word: string; hint: string; id: number }, index: number) => {

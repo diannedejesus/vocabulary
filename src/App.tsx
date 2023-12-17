@@ -11,12 +11,10 @@ import WordSearchGrid from "./Components/WordSearch/WordSearchGrid";
 import { spanish, english } from "./assets/translation";
 
 function App() {
-  const { data, loading, error } = useFetch(
-    "https://api.dictionaryapi.dev/api/v2/entries/en/test"
-  );
-  {
-    console.log(error);
-  }
+  // const { data, loading, error } = useFetch(
+  //   "https://api.dictionaryapi.dev/api/v2/entries/en/"
+  // );
+
   const wordlist = import.meta.env.DEV ? secondaryList : vocabularyList;
   const [worksheet, setWorksheet] = useState("");
   const [wordList, setWordList] = useState(wordlist);
@@ -60,6 +58,7 @@ function App() {
         <ScrambleList
           title={language.pageTitles.scramble}
           vocabularyList={wordList}
+          topSection={language.topSection}
         />
       )}
 
@@ -67,6 +66,7 @@ function App() {
         <BlankList
           title={language.pageTitles.missing}
           vocabularyList={wordList}
+          topSection={language.topSection}
         />
       )}
 
@@ -74,6 +74,7 @@ function App() {
         <WordSearchGrid
           title={language.pageTitles.search}
           wordSearchList={wordList}
+          topSection={language.topSection}
         />
       )}
 
@@ -87,9 +88,9 @@ function App() {
         />
       )}
 
-      {error && <p>Error: </p>}
+      {/* {error && <p>Error: </p>}
       {loading && <p>Loading...</p>}
-      {data && console.log(data)}
+      {data && console.log(data)} */}
     </>
   );
 }

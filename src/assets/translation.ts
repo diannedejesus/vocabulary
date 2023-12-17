@@ -1,5 +1,6 @@
 const spanish = {
   title: "Hojas de Trabajos",
+  topSection: {name: "Nombre", date: "Fecha"},
   navigation: {scramble: "Palabras Revuelto", missing: "Rellena Letras", search: "Busca Palabra", list: "Lista de Palabras", print: "Imprimir"},
   pageTitles: {scramble: "Arregle las Palabras", missing: "Rellena las Letras Ausente", search: "Encuentre las Palabras", list: "Vocabulario"},
   wordList: {form: {word: "Palabra", hint: "Pista", button: "Añadir"}},
@@ -8,6 +9,7 @@ const spanish = {
 }
 const english = {
   title: "Worksheets",
+  topSection: {name: "Name", date: "Date"},
   navigation: {scramble: "Word Scramble", missing: "Missing Letters", search: "Word Search", list: "Word List", print: "Print"},
   pageTitles: {scramble: "Unscramble the Words", missing: "Fill in the Missing Letters", search: "Find the Words", list: "Vocabulary"},
   wordList: {form: {word: "Word", hint: "Hint", button: "Add"}},

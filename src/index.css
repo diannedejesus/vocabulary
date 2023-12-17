@@ -32,6 +32,10 @@ h1 {
   line-height: 1.1;
 }
 
+.topsection {
+  display: none;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -44,6 +48,10 @@ h1 {
   form *,
   button {
     display: none;
+  }
+
+  .topsection {
+    display: flex;
   }
 }
 
