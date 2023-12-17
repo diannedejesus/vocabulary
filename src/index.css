@@ -46,7 +46,8 @@ h1 {
 @media print {
   nav,
   form *,
-  button {
+  button,
+  .gridsizeForm {
     display: none;
   }
 

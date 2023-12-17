@@ -27,6 +27,15 @@ tr {
   font-size: 1.2rem;
 }
 
+.gridsizeForm {
+  text-align: center;
+  margin: 1rem;
+}
+
+.gridsizeForm input {
+  width: 4.5rem;
+}
+
 @media print {
   .wordSearchTable td {
     border: 1px solid black;

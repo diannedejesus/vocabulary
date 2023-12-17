@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState } from "react";
-import { useFetch } from "./useFetch";
+// import { useFetch } from "./useFetch";
 import "./App.css";
 import Navigation from "./Components/Navigation/Navigation";
 import ScrambleList from "./Components/Scramble/ScrambleList";
@@ -16,6 +16,7 @@ function App() {
   // );
 
   const wordlist = import.meta.env.DEV ? secondaryList : vocabularyList;
+  const [gridSize, setGridSize] = useState(12);
   const [worksheet, setWorksheet] = useState("");
   const [wordList, setWordList] = useState(wordlist);
   const [language, setLanguage] = useState(english);
@@ -41,6 +42,15 @@ function App() {
   const onRemoveWord = (data: number) => {
     const removeItem = wordList.filter((item) => item.id !== data);
     setWordList(removeItem);
+  };
+
+  const onModifyGridSize = (event: SyntheticEvent) => {
+    const target = event.target as typeof event.target & {
+      gridSize: { value: number };
+    };
+    if (target.gridSize.value < 100) {
+      setGridSize(target.gridSize.value);
+    }
   };
 
   return (
@@ -72,9 +82,11 @@ function App() {
 
       {worksheet === "wordsearch" && (
         <WordSearchGrid
+          gridSize={gridSize}
           title={language.pageTitles.search}
           wordSearchList={wordList}
           topSection={language.topSection}
+          onModify={onModifyGridSize}
         />
       )}
 

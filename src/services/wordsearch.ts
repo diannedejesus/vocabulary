@@ -188,6 +188,7 @@ class WordSearchGenerator {
     }
 
     generateWordSearch(grid: string[], words: string[], gridSize: number){
+        gridSize = Number(gridSize);
         for(let i=0; i<gridSize*gridSize; i++){
             grid.push("")
         }
