@@ -23,11 +23,10 @@ I need to do more testing.
 Also in word search if a word can't be placed it will be excluded. It will try every position and placement before excluding the word.
 
 <!--
-            -> Word list: print version has a lot of space if no hint is provided.
-            -> all: add to top name and date field
+
+Print -> Word list: print version has a lot of space if no hint is provided.
+
 Wordsearch: allow customized gridsize, possibly easier version by using fill letter of all alphabet
 word list: add a section for allowing copying and pasting a list
-
-
 
  -->

@@ -23,7 +23,7 @@ tr {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 8rem;
+  height: 10rem;
   font-size: 1.2rem;
 }
 
