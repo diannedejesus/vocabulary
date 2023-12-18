@@ -16,7 +16,7 @@ function App() {
   // );
 
   const wordlist = import.meta.env.DEV ? secondaryList : vocabularyList;
-  const [gridSize, setGridSize] = useState(12);
+  const [gridSize, setGridSize] = useState<number>(12);
   const [worksheet, setWorksheet] = useState("");
   const [wordList, setWordList] = useState(wordlist);
   const [language, setLanguage] = useState(english);
@@ -48,8 +48,9 @@ function App() {
     const target = event.target as typeof event.target & {
       gridSize: { value: number };
     };
+
     if (target.gridSize.value < 100) {
-      setGridSize(target.gridSize.value);
+      setGridSize(Number(target.gridSize.value));
     }
   };
 

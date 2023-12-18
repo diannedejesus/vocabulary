@@ -60,7 +60,6 @@ class WordSearchGenerator {
     }
 
     diagonalLeftPlacement(word: string, location: number, grid: string[], gridSize: number){
-
         for(let i=0; i<word.length; i++){
             let gridLocation = location +(i*gridSize) - i
 
@@ -188,7 +187,7 @@ class WordSearchGenerator {
     }
 
     generateWordSearch(grid: string[], words: string[], gridSize: number){
-        gridSize = Number(gridSize);
+        // gridSize = Number(gridSize);
         for(let i=0; i<gridSize*gridSize; i++){
             grid.push("")
         }
