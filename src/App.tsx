@@ -68,6 +68,7 @@ function App() {
       {worksheet === "scramble" && (
         <ScrambleList
           title={language.pageTitles.scramble}
+          formText={language.wordList.form}
           vocabularyList={wordList}
           topSection={language.topSection}
         />
