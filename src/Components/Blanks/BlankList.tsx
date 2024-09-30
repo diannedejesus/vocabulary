@@ -6,9 +6,15 @@ interface Props {
   vocabularyList: { word: string; hint: string; id: number }[];
   title: string;
   topSection: { name: string; date: string };
+  formText: { hint: string };
 }
 
-const BlankList = ({ vocabularyList, title, topSection }: Props) => {
+const BlankList = ({
+  vocabularyList,
+  title,
+  topSection,
+  formText: { hint },
+}: Props) => {
   const helpers = new helperfunctions();
   const randomizedList = helpers.randomizeWords(vocabularyList);
 
@@ -21,6 +27,7 @@ const BlankList = ({ vocabularyList, title, topSection }: Props) => {
           return (
             <BlankBox
               key={word.id}
+              fieldText={{ hint }}
               vocabularyWord={helpers.maskWord(word.word)}
               hintPhrase={word.hint}
               id={index + 1}

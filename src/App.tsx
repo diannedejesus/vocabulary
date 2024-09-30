@@ -77,6 +77,7 @@ function App() {
       {worksheet === "blank" && (
         <BlankList
           title={language.pageTitles.missing}
+          formText={language.wordList.form}
           vocabularyList={wordList}
           topSection={language.topSection}
         />
