@@ -53,36 +53,9 @@ function VocabularyForm({
       setData(fetchedDefinitions);
       //loading
     };
-    // const fetchDefinitions = async () => {
-    //   //setloading
-    //   const fetchedDefinitions: Definitions = {};
-    //   for (const word of words) {
-    //     try {
-    //       const response = await fetch(
-    //         `https://api.dictionaryapi.dev/api/v2/entries/en/${word.word}`
-    //       );
-    //       const data = await response.json();
-
-    //       if (response.ok) {
-    //         fetchedDefinitions[word.word] =
-    //           data[0].meanings[0].definitions[0].definition;
-    //       } else {
-    //         fetchedDefinitions[
-    //           word.word
-    //         ] = `No definition found for "${word.word}"`;
-    //       }
-    //     } catch (error) {
-    //       fetchedDefinitions[
-    //         word.word
-    //       ] = `Error fetching definition for "${word.word}"`;
-    //     }
-    //   }
-    //   setData(fetchedDefinitions);
-    //setloading
-    // };
 
     fetchDefinitions();
-  }, []);
+  }, [words]);
 
   //console.log(data);
 
