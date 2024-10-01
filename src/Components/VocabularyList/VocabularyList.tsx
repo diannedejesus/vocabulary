@@ -1,4 +1,4 @@
-import { SyntheticEvent } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import "./VocabularyList.css";
 import InputWordField from "./InputWordField";
 
@@ -9,6 +9,9 @@ interface Props {
   formText: { word: string; hint: string; button: string };
   title: string;
 }
+interface Definitions {
+  [key: string]: string;
+}
 
 function VocabularyForm({
   onSubmit,
@@ -17,6 +20,72 @@ function VocabularyForm({
   title,
   formText: { word, hint, button },
 }: Props) {
+  const [data, setData] = useState<Definitions>();
+
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
+  const fetchDefinitionWithDelay = async (word: string, delayTime: number) => {
+    await delay(delayTime);
+
+    try {
+      const response = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+      );
+      if (!response.ok) throw new Error(`No definition found for "${word}".`);
+      const data = await response.json();
+      return { word, data: data[0].meanings[0].definitions[0].definition };
+    } catch (error) {
+      return { word, data: `Error fetching definition for "${word}".` };
+    }
+  };
+
+  useEffect(() => {
+    const fetchDefinitions = async () => {
+      //loading
+      const fetchedDefinitions: Definitions = {};
+
+      for (let i = 0; i < words.length; i++) {
+        const word = words[i].word;
+        const result = await fetchDefinitionWithDelay(word, 1000);
+        fetchedDefinitions[result.word] = result.data;
+      }
+      setData(fetchedDefinitions);
+      //loading
+    };
+    // const fetchDefinitions = async () => {
+    //   //setloading
+    //   const fetchedDefinitions: Definitions = {};
+    //   for (const word of words) {
+    //     try {
+    //       const response = await fetch(
+    //         `https://api.dictionaryapi.dev/api/v2/entries/en/${word.word}`
+    //       );
+    //       const data = await response.json();
+
+    //       if (response.ok) {
+    //         fetchedDefinitions[word.word] =
+    //           data[0].meanings[0].definitions[0].definition;
+    //       } else {
+    //         fetchedDefinitions[
+    //           word.word
+    //         ] = `No definition found for "${word.word}"`;
+    //       }
+    //     } catch (error) {
+    //       fetchedDefinitions[
+    //         word.word
+    //       ] = `Error fetching definition for "${word.word}"`;
+    //     }
+    //   }
+    //   setData(fetchedDefinitions);
+    //setloading
+    // };
+
+    fetchDefinitions();
+  }, []);
+
+  //console.log(data);
+
   return (
     <>
       <h2>{title}</h2>
@@ -35,12 +104,22 @@ function VocabularyForm({
 
       <section>
         {words.map(
-          (word: { word: string; hint: string; id: number }, index: number) => (
+          (
+            word: {
+              word: string;
+              hint: string;
+              id: number;
+            },
+            index: number
+          ) => (
             <div className="list" key={word.id}>
               <div>{index + 1}.</div>
               <div className="data">
                 <div className="listWord">{word.word}</div>{" "}
-                <div className="listHint">{word.hint}</div>
+                <div className="listHint">hint: {word.hint}</div>
+                <div className="listHint">
+                  definition: {data && data[word.word]}
+                </div>
               </div>
               <button onClick={() => onRemoveWord(word.id)}>-</button>
             </div>

@@ -4,7 +4,7 @@ import "./App.css";
 import Navigation from "./Components/Navigation/Navigation";
 import ScrambleList from "./Components/Scramble/ScrambleList";
 import BlankList from "./Components/Blanks/BlankList";
-import { lesson12spa as secondaryList } from "./assets/data2";
+import { lesson05 as secondaryList } from "./assets/data2";
 import vocabularyList from "./assets/data";
 import VocabularyForm from "./Components/VocabularyList/VocabularyList";
 import WordSearchGrid from "./Components/WordSearch/WordSearchGrid";
