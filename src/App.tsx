@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useState, useEffect } from "react";
 // import { useFetch } from "./useFetch";
 import "./App.css";
 import Navigation from "./Components/Navigation/Navigation";
@@ -10,16 +10,65 @@ import VocabularyForm from "./Components/VocabularyList/VocabularyList";
 import WordSearchGrid from "./Components/WordSearch/WordSearchGrid";
 import { spanish, english } from "./assets/translation";
 
-function App() {
-  // const { data, loading, error } = useFetch(
-  //   "https://api.dictionaryapi.dev/api/v2/entries/en/"
-  // );
+interface Definitions {
+  [key: string]: string;
+}
 
+function App() {
   const wordlist = import.meta.env.DEV ? secondaryList : vocabularyList;
   const [gridSize, setGridSize] = useState<number>(12);
   const [worksheet, setWorksheet] = useState("");
   const [wordList, setWordList] = useState(wordlist);
   const [language, setLanguage] = useState(english);
+
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
+  const fetchDefinitionWithDelay = async (word: string, delayTime: number) => {
+    await delay(delayTime);
+
+    try {
+      const response = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+      );
+      if (!response.ok) throw new Error(`No definition found for "${word}".`);
+      const data = await response.json();
+      return { word, data: data[0].meanings[0].definitions[0].definition };
+    } catch (error) {
+      return { word, data: `Error fetching definition for "${word}".` };
+    }
+  };
+
+  useEffect(() => {
+    const fetchDefinitions = async () => {
+      //loading
+      const fetchedDefinitions: Definitions = {};
+      console.log("ran");
+      for (let i = 0; i < wordList.length; i++) {
+        const word = wordList[i].word;
+
+        // if (!wordList[i].definition || definitionList[word].includes("Error")) {
+        const result = await fetchDefinitionWithDelay(word, 1000);
+        fetchedDefinitions[result.word] = result.data;
+        // }
+      }
+      //setDefinitionList(fetchedDefinitions);
+      //onAddDefinitionWordList(fetchedDefinitions);
+
+      const newList = [];
+      for (const currentWord of wordList) {
+        newList.push({
+          ...currentWord,
+          definition: fetchedDefinitions[currentWord.word],
+        });
+      }
+      setWordList(newList);
+      //loading
+    };
+
+    fetchDefinitions();
+  }, []);
+  //--------------------------------------------------------
 
   const submittedInfo = (event: SyntheticEvent) => {
     const target = event.target as typeof event.target & {
@@ -32,6 +81,7 @@ function App() {
         word: target.word.value,
         hint: target.hint.value,
         id: wordList.length + 1,
+        definition: "",
       },
       ...wordList,
     ]);
