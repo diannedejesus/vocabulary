@@ -46,14 +46,10 @@ function App() {
       console.log("ran");
       for (let i = 0; i < wordList.length; i++) {
         const word = wordList[i].word;
-
-        // if (!wordList[i].definition || definitionList[word].includes("Error")) {
         const result = await fetchDefinitionWithDelay(word, 1000);
+
         fetchedDefinitions[result.word] = result.data;
-        // }
       }
-      //setDefinitionList(fetchedDefinitions);
-      //onAddDefinitionWordList(fetchedDefinitions);
 
       const newList = [];
       for (const currentWord of wordList) {
@@ -70,18 +66,20 @@ function App() {
   }, []);
   //--------------------------------------------------------
 
-  const submittedInfo = (event: SyntheticEvent) => {
+  const submittedInfo = async (event: SyntheticEvent) => {
     const target = event.target as typeof event.target & {
       word: { value: string };
       hint: { value: string };
     };
+
+    const result = await fetchDefinitionWithDelay(target.word.value, 1000);
 
     setWordList([
       {
         word: target.word.value,
         hint: target.hint.value,
         id: wordList.length + 1,
-        definition: "",
+        definition: result.data,
       },
       ...wordList,
     ]);
