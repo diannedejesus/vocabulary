@@ -1,4 +1,4 @@
-button {
+button.hintButton {
   all: unset;
   margin-left: 0.5em;
   text-transform: uppercase;
