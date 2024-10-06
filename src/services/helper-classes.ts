@@ -1,5 +1,5 @@
 class helperfunctions {
-  randomizeWords(wordList: { word: string; hint: string; id: number; }[]) {
+  randomizeWords(wordList: { word: string; hint: string; id: number; definition: string; }[]) {
       // Create a copy of the original array to avoid modifying the input
       const shuffledList = [...wordList];
     
