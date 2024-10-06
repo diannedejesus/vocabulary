@@ -1,6 +1,8 @@
+import { useState } from "react";
+
 interface Props {
   vocabularyWord: string;
-  hintPhrase?: string;
+  hintPhrase?: { hint: string; definition: string };
   id?: number;
   fieldText: { hint: string };
 }
@@ -11,6 +13,13 @@ function ScrambleBox({
   id,
   fieldText: { hint },
 }: Props) {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleToggle = () => {
+    console.log(isSelected);
+    setIsSelected(!isSelected);
+  };
+
   return (
     <section className="mainContainer">
       <div className="wordContainer">
@@ -23,7 +32,14 @@ function ScrambleBox({
       </div>
       <div className="hintBox">
         <div></div>
-        <div>{hintPhrase && hint + ": " + hintPhrase} </div>
+        <div>
+          {isSelected
+            ? hintPhrase && hint + ": " + hintPhrase.hint
+            : hintPhrase && hint + ": " + hintPhrase.definition}
+          <button className="hintButton" onClick={handleToggle}>
+            {isSelected ? "see hint" : "see definition"}
+          </button>
+        </div>
       </div>
     </section>
   );

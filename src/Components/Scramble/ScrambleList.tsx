@@ -3,7 +3,12 @@ import TopSection from "../TopSection";
 import ScrambleBox from "./ScrambleBox";
 
 interface Props {
-  vocabularyList: { word: string; hint: string; id: number }[];
+  vocabularyList: {
+    word: string;
+    hint: string;
+    id: number;
+    definition: string;
+  }[];
   title: string;
   topSection: { name: string; date: string };
   formText: { hint: string };
@@ -23,13 +28,16 @@ const ScrambleList = ({
       <TopSection text={topSection} />
       <h2>{title}</h2>
       {randomizedList.map(
-        (word: { word: string; hint: string; id: number }, index: number) => {
+        (
+          word: { word: string; hint: string; id: number; definition: string },
+          index: number
+        ) => {
           return (
             <ScrambleBox
               key={word.id}
               fieldText={{ hint }}
               vocabularyWord={helpers.scrambleWord(word.word, 10)}
-              hintPhrase={word.hint}
+              hintPhrase={{ hint: word.hint, definition: word.definition }}
               id={index + 1}
             />
           );
