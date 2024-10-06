@@ -7,7 +7,12 @@ import GridSize from "./GridSize";
 import { SyntheticEvent } from "react";
 
 interface Props {
-  wordSearchList: { word: string; hint: string; id: number }[];
+  wordSearchList: {
+    word: string;
+    hint: string;
+    id: number;
+    definition: string;
+  }[];
   title: string;
   topSection: { name: string; date: string };
   gridSize: number;

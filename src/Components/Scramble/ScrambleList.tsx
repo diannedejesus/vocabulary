@@ -1,6 +1,7 @@
 import helperfunctions from "../../services/helper-classes";
 import TopSection from "../TopSection";
 import ScrambleBox from "./ScrambleBox";
+import "./scramble.css";
 
 interface Props {
   vocabularyList: {
